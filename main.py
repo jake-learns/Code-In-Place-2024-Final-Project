@@ -34,22 +34,22 @@ winning_score = 50
 
 #loads music
 pygame.mixer.pre_init(44100, -16, 2, 512)
-menu_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)\One Man Symphony - Wreckage (Free) - 01 Black Holes (Action 01) - Loops.mp3')
+menu_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)/One Man Symphony - Wreckage (Free) - 01 Black Holes (Action 01) - Loops.mp3')
 pygame.mixer.music.set_volume(volume)
 pygame.mixer.music.play(-1, .5, 2500)
 pygame.mixer.set_num_channels(64)
 
 #loads some sound files
-player_sound = pygame.mixer.Sound("audio\zapsplat_cartoon_anime_laser_blash_short_weak_92469.mp3")
-boss_incoming = pygame.mixer.Sound("audio\\boss_incoming.wav")
-boss_pew = pygame.mixer.Sound("audio\\boss_shoot_sound_2.ogg")
+player_sound = pygame.mixer.Sound("audio/zapsplat_cartoon_anime_laser_blash_short_weak_92469.mp3")
+boss_incoming = pygame.mixer.Sound("audio/boss_incoming.wav")
+boss_pew = pygame.mixer.Sound("audio/boss_shoot_sound_2.ogg")
 boss_pew.set_volume(volume)
-boss_image = pygame.image.load("enemies\\Boss\\boss.png").convert_alpha()
+boss_image = pygame.image.load("enemies/Boss/boss.png").convert_alpha()
 
 bob_channel = pygame.mixer.Channel(29)
-bob_pew = pygame.mixer.Sound("audio\\bob_pews.mp3")
+bob_pew = pygame.mixer.Sound("audio/bob_pews.mp3")
 bob_pew.set_volume(volume)
-bob_boss = pygame.image.load("enemies\Boss\\bob_boss.png").convert_alpha()
+bob_boss = pygame.image.load("enemies/Boss/bob_boss.png").convert_alpha()
 boss_channel = pygame.mixer.Channel(28)
 
 #default (x, y) offset for the ship
@@ -59,28 +59,28 @@ ship_x_offset = 40
 
 
 #loads background images and defines variables unique to them
-bg_one = pygame.image.load("backgrounds\\bg_1.png").convert_alpha()
+bg_one = pygame.image.load("backgrounds/bg_1.png").convert_alpha()
 bg_one_width = bg_one.get_width()
 bg_one_tiles = math.ceil(SCREEN_WIDTH / bg_one_width) + 1 
 bg_one_scroll = 0
 
-bg_two = pygame.image.load("backgrounds\\bg_2.png").convert_alpha()
+bg_two = pygame.image.load("backgrounds/bg_2.png").convert_alpha()
 bg_two_width = bg_two.get_width()
 bg_two_tiles = math.ceil(SCREEN_WIDTH / bg_two_width) + 1 
 bg_two_scroll = 0
 
-bg_three = pygame.image.load("backgrounds\\bg_3.png").convert_alpha()
+bg_three = pygame.image.load("backgrounds/bg_3.png").convert_alpha()
 bg_three_width = bg_three.get_width()
 bg_three_tiles = math.ceil(SCREEN_WIDTH / bg_three_width) + 1 
 bg_three_scroll = 0
 
-bg_menu = pygame.image.load("backgrounds\menu.png").convert_alpha()
-option_menu = pygame.image.load("backgrounds\\controls_menu.png").convert_alpha()
+bg_menu = pygame.image.load("backgrounds/menu.png").convert_alpha()
+option_menu = pygame.image.load("backgrounds/controls_menu.png").convert_alpha()
 
 
-full_lives = pygame.image.load("spaceship\Working Folder\Full Lives.png").convert_alpha()
-two_lives = pygame.image.load("spaceship\Working Folder\Two Lives.png").convert_alpha()
-one_lives = pygame.image.load("spaceship\Working Folder\One Life.png").convert_alpha()
+full_lives = pygame.image.load("spaceship/Working Folder/Full Lives.png").convert_alpha()
+two_lives = pygame.image.load("spaceship/Working Folder/Two Lives.png").convert_alpha()
+one_lives = pygame.image.load("spaceship/Working Folder/One Life.png").convert_alpha()
 
 class Player(pygame.sprite.Sprite):
     
@@ -97,50 +97,50 @@ class Player(pygame.sprite.Sprite):
         #loads all the images for the animation of the ship idling
         self.space_ship = []
         for i in range(1, 7):
-            self.space_ship.append(pygame.image.load(f"spaceship\Working Folder\move_{i}.png").convert_alpha())
+            self.space_ship.append(pygame.image.load(f"spaceship/Working Folder/move_{i}.png").convert_alpha())
 
         #loads all the images for the animation of the ship idling
         self.space_ship2 = []
         for i in range(1, 6):
-            self.space_ship2.append(pygame.image.load(f"spaceship\Working Folder\\boost_{i}.png").convert_alpha())
+            self.space_ship2.append(pygame.image.load(f"spaceship/Working Folder/boost_{i}.png").convert_alpha())
 
         #loads all the images for the animation of the ships exploding
         self.destroyed = []
         for i in range(1, 16):
-            self.destroyed.append(pygame.image.load(f"spaceship\\unused\destroyed_{i}.png"))
+            self.destroyed.append(pygame.image.load(f"spaceship/unused/destroyed_{i}.png"))
 
         #loads all the images for the animation of the ship moving forward while turning down
-        self.space_ship_turning_down_boost = [pygame.image.load("spaceship\Working Folder\\turn_up_half_boost.png").convert_alpha()]
+        self.space_ship_turning_down_boost = [pygame.image.load("spaceship/Working Folder/turn_up_half_boost.png").convert_alpha()]
         for i in range(1, 6):
-            self.space_ship_turning_down_boost.append(pygame.image.load(f"spaceship\Working Folder\\turn_down_full_boost_{i}.png").convert_alpha())
+            self.space_ship_turning_down_boost.append(pygame.image.load(f"spaceship/Working Folder/turn_down_full_boost_{i}.png").convert_alpha())
         
         #loads all the images for the animation of the ship moving forward while turning up
-        self.space_ship_turning_up_boost = [pygame.image.load("spaceship\Working Folder\\turn_down_half_boost.png").convert_alpha()]
+        self.space_ship_turning_up_boost = [pygame.image.load("spaceship/Working Folder/turn_down_half_boost.png").convert_alpha()]
         for i in range(1, 6):
-            self.space_ship_turning_up_boost.append(pygame.image.load(f"spaceship\Working Folder\\turn_up_full_boost_{i}.png").convert_alpha())
+            self.space_ship_turning_up_boost.append(pygame.image.load(f"spaceship/Working Folder/turn_up_full_boost_{i}.png").convert_alpha())
 
 
         #loads all the images for the animation of the ship turning down
-        self.space_ship_turning_down = [pygame.image.load("spaceship\Working Folder\\turn_down_half_moving.png").convert_alpha()]
+        self.space_ship_turning_down = [pygame.image.load("spaceship/Working Folder/turn_down_half_moving.png").convert_alpha()]
         for i in range(1, 7):
-            self.space_ship_turning_down.append(pygame.image.load(f"spaceship\Working Folder\\turn_down_full_moving_{i}.png").convert_alpha())
+            self.space_ship_turning_down.append(pygame.image.load(f"spaceship/Working Folder/turn_down_full_moving_{i}.png").convert_alpha())
 
         #loads all the images for the animation of the ship turning up
-        self.space_ship_turning_up = [pygame.image.load("spaceship\Working Folder\\turn_up_half_moving.png").convert_alpha()]
+        self.space_ship_turning_up = [pygame.image.load("spaceship/Working Folder/turn_up_half_moving.png").convert_alpha()]
         for i in range(1, 7):
-            self.space_ship_turning_up.append(pygame.image.load(f"spaceship\Working Folder\\turn_up_full_moving_{i}.png").convert_alpha())
+            self.space_ship_turning_up.append(pygame.image.load(f"spaceship/Working Folder/turn_up_full_moving_{i}.png").convert_alpha())
 
         #loads animations for the return to moving state
-        self.return_to_idle_neg_1 = [ pygame.image.load("spaceship\Working Folder\\turn_down_half_moving.png").convert_alpha(),  pygame.image.load("spaceship\Working Folder\idle.png").convert_alpha()]
-        self.return_to_idle_1 = [ pygame.image.load("spaceship\Working Folder\\turn_up_half_moving.png").convert_alpha(),  pygame.image.load("spaceship\Working Folder\idle.png").convert_alpha()]
+        self.return_to_idle_neg_1 = [ pygame.image.load("spaceship/Working Folder/turn_down_half_moving.png").convert_alpha(),  pygame.image.load("spaceship/Working Folder/idle.png").convert_alpha()]
+        self.return_to_idle_1 = [ pygame.image.load("spaceship/Working Folder/turn_up_half_moving.png").convert_alpha(),  pygame.image.load("spaceship/Working Folder/idle.png").convert_alpha()]
 
         #loads all the images for the animation of the ship turning both down and up while moving forward
-        self.ship_return_to_center_top = pygame.image.load("spaceship\Working Folder\\turn_up_half_moving.png").convert_alpha()
-        self.ship_return_to_center_bottom = pygame.image.load("spaceship\Working Folder\\turn_down_half_moving.png").convert_alpha()
+        self.ship_return_to_center_top = pygame.image.load("spaceship/Working Folder/turn_up_half_moving.png").convert_alpha()
+        self.ship_return_to_center_bottom = pygame.image.load("spaceship/Working Folder/turn_down_half_moving.png").convert_alpha()
 
         #loads all the images for the animation of the ship turning both down and up while moving forward
-        self.ship_boost_return_to_center_top = pygame.image.load("spaceship\Working Folder\\turn_up_half_boost.png").convert_alpha()
-        self.ship_boost_return_to_center_bottom = pygame.image.load("spaceship\Working Folder\\turn_down_half_boost.png").convert_alpha()
+        self.ship_boost_return_to_center_top = pygame.image.load("spaceship/Working Folder/turn_up_half_boost.png").convert_alpha()
+        self.ship_boost_return_to_center_bottom = pygame.image.load("spaceship/Working Folder/turn_down_half_boost.png").convert_alpha()
 
         #variables to store current index valuesfor various animation states
         self.ship_idle_index = 0
@@ -160,15 +160,15 @@ class Player(pygame.sprite.Sprite):
 
 
         # #loads all the images for the animation of the ship turning both down and up, while not going foward
-        # self.ship_turning_down = [ pygame.image.load("spaceship\\turn_down_1.png").convert_alpha(),  pygame.image.load("spaceship\\turn_down_2.png").convert_alpha()]
-        # self.ship_turning_up = [ pygame.image.load("spaceship\\turn_up_1.png").convert_alpha(),  pygame.image.load("spaceship\\turn_up_2.png").convert_alpha()]
+        # self.ship_turning_down = [ pygame.image.load("spaceship/turn_down_1.png").convert_alpha(),  pygame.image.load("spaceship/turn_down_2.png").convert_alpha()]
+        # self.ship_turning_up = [ pygame.image.load("spaceship/turn_up_1.png").convert_alpha(),  pygame.image.load("spaceship/turn_up_2.png").convert_alpha()]
 
         #loads the sound files related to the ship
         self.shoot_channel = pygame.mixer.Channel(32)
         self.thruster_channel = pygame.mixer.Channel(31)
-        self.thrusters_sound = pygame.mixer.Sound("audio\zapsplat_science_fiction_spaceship_station_drone_loud.mp3")
+        self.thrusters_sound = pygame.mixer.Sound("audio/zapsplat_science_fiction_spaceship_station_drone_loud.mp3")
         self.thrusters_sound.set_volume(volume)
-        self.explosion_sound = pygame.mixer.Sound("audio\explosion.ogg")
+        self.explosion_sound = pygame.mixer.Sound("audio/explosion.ogg")
         self.explosion_channel = pygame.mixer.Channel(30)
         
     def player_input(self, keys):
@@ -308,10 +308,10 @@ class Bullets(pygame.sprite.Sprite):
     animation_speed = 0.2
     animation_list = []
     for i in range(1, 5):
-        image = pygame.image.load(f"enemies\enemy_1\\rocket_{i}.png").convert_alpha()
+        image = pygame.image.load(f"enemies/enemy_1/rocket_{i}.png").convert_alpha()
         image = pygame.transform.scale_by(image, 2)
         animation_list.append(image)
-        rocket = pygame.mixer.Sound("audio\cartoon_rocket_launch.wav")
+        rocket = pygame.mixer.Sound("audio/cartoon_rocket_launch.wav")
     def __init__(self,x,y, origin):
         super().__init__()
         self.x = x
@@ -319,12 +319,12 @@ class Bullets(pygame.sprite.Sprite):
         self.origin = origin
         self.animation_index = 0
         if origin == 1:
-            self.image = pygame.image.load("spaceship\\unused\\blue_laser.png").convert_alpha()
+            self.image = pygame.image.load("spaceship/unused/blue_laser.png").convert_alpha()
         elif origin == -1:
             self.image = self.animation_list[self.animation_index]
         elif origin == -2:
             self.y_speed = random.randrange(-10,10)
-            self.image = pygame.image.load("enemies\\Boss\\ball_red_2.png").convert_alpha()
+            self.image = pygame.image.load("enemies/Boss/ball_red_2.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.center = [x,y]
         
@@ -367,12 +367,12 @@ class Bullets(pygame.sprite.Sprite):
 
 class Enemy(pygame.sprite.Sprite):
     shoot_cooldown = 2400 #milliseconds
-    rocket = pygame.mixer.Sound("audio\cartoon_rocket_launch.wav")
+    rocket = pygame.mixer.Sound("audio/cartoon_rocket_launch.wav")
     rocket.set_volume(volume)
     animation_speed = 0.2
     animation_list = []
     for i in range(1, 7):
-        image = pygame.image.load(f"enemies\enemy_1\\boost_{i}.png").convert_alpha()
+        image = pygame.image.load(f"enemies/enemy_1/boost_{i}.png").convert_alpha()
         image = pygame.transform.scale_by(image, .75)
         animation_list.append(image)
 
@@ -537,26 +537,26 @@ enemy_spanwer_cooldown = 1500
 last_enemy_spawned = pygame.time.get_ticks()
 
 #initialize the buttons for main menu
-start = pygame.image.load("buttons\\start_yellow.png").convert_alpha()
+start = pygame.image.load("buttons/start_yellow.png").convert_alpha()
 start_button = Button(bg_menu.get_width() * .82 , (SCREEN_HEIGHT//6), start)
 
 #initialize the buttons for main menu
-options = pygame.image.load("buttons\\options_yellow.png").convert_alpha()
+options = pygame.image.load("buttons/options_yellow.png").convert_alpha()
 options_button = Button(bg_menu.get_width() * .82, (SCREEN_HEIGHT//6) * 3, options)
 
 #initialize the buttons for main menu
-exits = pygame.image.load("buttons\\exit_yellow.png").convert_alpha()
+exits = pygame.image.load("buttons/exit_yellow.png").convert_alpha()
 exit_button = Button(bg_menu.get_width() * .82, (SCREEN_HEIGHT//6) * 5, exits)
 
 #initialize the buttons for the extra menus
-back = pygame.image.load("buttons\\back_yellow.png").convert_alpha()
+back = pygame.image.load("buttons/back_yellow.png").convert_alpha()
 back_button = Button(bg_menu.get_width() * .82, (SCREEN_HEIGHT//6) * 5, back)
 
 #initialize the buttons for the extra menus
-restart = pygame.image.load("buttons\\restart_yellow.png").convert_alpha()
+restart = pygame.image.load("buttons/restart_yellow.png").convert_alpha()
 restart_button = Button(bg_menu.get_width() * .82, (SCREEN_HEIGHT//6) * 5, restart)
 
-bob = pygame.image.load("buttons\\bob.png").convert_alpha()
+bob = pygame.image.load("buttons/bob.png").convert_alpha()
 bob = pygame.transform.scale_by(bob, .75)
 bob_button = Button(bg_menu.get_width() * .82, (SCREEN_HEIGHT//6)//2, bob)
 
@@ -569,7 +569,7 @@ while running:
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE and menu == False:
-                game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)\One Man Symphony - Wreckage (Free) - 01 Black Holes (Action 01) - Loops.mp3')
+                game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)/One Man Symphony - Wreckage (Free) - 01 Black Holes (Action 01) - Loops.mp3')
                 pygame.mixer.music.play(-1, .5, 2500)
                 menu = True
                 playing = False
@@ -584,8 +584,8 @@ while running:
         draw_menu(bg_menu)
         
         if start_button.update():
-            start_button.image = pygame.image.load("buttons\\resume_yellow.png").convert_alpha()
-            game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)\One Man Symphony - Wreckage (Free) - 02 Unknown (Action 02) - Loops.mp3')
+            start_button.image = pygame.image.load("buttons/resume_yellow.png").convert_alpha()
+            game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)/One Man Symphony - Wreckage (Free) - 02 Unknown (Action 02) - Loops.mp3')
             pygame.mixer.music.play(-1, .5, 2500)
             playing = True
             menu = False
@@ -650,7 +650,7 @@ while running:
         
         #loads boss music once the warnng sound is done
         if boss_spawned and not boss_channel.get_busy() and not pygame.mixer.music.get_busy():
-            game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)\One Man Symphony - Wreckage (Free) - 03 Singularity (Action 03) - Loops.mp3')
+            game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)/One Man Symphony - Wreckage (Free) - 03 Singularity (Action 03) - Loops.mp3')
             pygame.mixer.music.play(-1, .5, 2500)
 
         # scrolls the background endlessly with 3 tiles, creating a parallax effect
@@ -701,7 +701,7 @@ while running:
             #user clicked restart button, reset all values
             score = 0
             player_lives = 3
-            start_button.image = pygame.image.load("buttons\\start_yellow.png").convert_alpha()
+            start_button.image = pygame.image.load("buttons/start_yellow.png").convert_alpha()
             respawn()
             boss_group.empty()
             game_over = False
@@ -709,10 +709,10 @@ while running:
             boss_spawned = False
             player_win = False
             bob_mode = False
-            boss_image = pygame.image.load("enemies\\Boss\\boss.png")
-            boss_pew = pygame.mixer.Sound("audio\\boss_shoot_sound_2.ogg")
+            boss_image = pygame.image.load("enemies/Boss/boss.png")
+            boss_pew = pygame.mixer.Sound("audio/boss_shoot_sound_2.ogg")
             boss_pew.set_volume(volume)
-            game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)\One Man Symphony - Wreckage (Free) - 01 Black Holes (Action 01) - Loops.mp3')
+            game_music = pygame.mixer.music.load('One Man Symphony - Wreckage (Free)/One Man Symphony - Wreckage (Free) - 01 Black Holes (Action 01) - Loops.mp3')
             pygame.mixer.music.play(-1, .5, 2500)
             time.sleep(.2)
 
