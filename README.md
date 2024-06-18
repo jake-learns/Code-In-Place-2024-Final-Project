@@ -12,3 +12,11 @@ In addition to the sources above, I used [Aesprite](https://aseprite.org/) to mo
 
 Additional thanks goes out to [Bob](https://codeinplace.stanford.edu/public/user/zxtfGx5IJFaKA4BmajxSDzzIP7d2) for allowing the use of his image and voice for a special boss, which is enabled in the Options.
 
+## Stretch Goals/Work In Progress
+- Boss Animation
+- Enemy Explosions on death
+- The enemy is animated, from a sprite perspective. There just isn't an explosion on death. 
+- The boss has no animation, it's just a static image. I would want that to cycle through images to appear animated like the other sprites.
+- I'd like to add more enemy diversity with different shot patterns. power ups and improvements for you bullets
+- Decoupling of the players shots so each bullet has it's own collision
+- Figure out this weird stutter that happens on respawn
