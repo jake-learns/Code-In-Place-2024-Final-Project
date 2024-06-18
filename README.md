@@ -11,3 +11,4 @@
 In addition to the sources above, I used [Aesprite](https://aseprite.org/) to modify some of the free assets. I spent a lot of time ensuring that the animations looked good on the player and enemy sprites. I needed lots of modifications to fit my needs. 
 
 Additional thanks goes out to [Bob](https://codeinplace.stanford.edu/public/user/zxtfGx5IJFaKA4BmajxSDzzIP7d2) for allowing the use of his image and voice for a special boss, which is enabled in the Options.
+
