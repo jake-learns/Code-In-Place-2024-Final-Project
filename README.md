@@ -1,6 +1,6 @@
 # Generic Space Shooter
 
-![2024-06-1813-38-27-ezgif com-video-to-gif-converter](https://github.com/jake-learns/Code-In-Place-2024-Final-Project/assets/49463135/fe5c4af5-3aa0-47af-8561-9b472fcb1d81)
+![2024-06-1813-38-27-ezgif com-video-to-gif-converter](https://github.com/jake-learns/Code-In-Place-2024-Final-Project/assets/49463135/e4f0c607-f3ab-4804-a307-2139ac74cfcd)
 
 ## This game is an early model side-scrolling bullet hell. It was made as a final project for Stanford's 2024 Code In Place program. 
 
