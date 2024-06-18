@@ -8,7 +8,7 @@
 ### Assets for some sprites were sourced from [CraftPix](https://craftpix.net/freebies/free-spaceship-pixel-art-sprite-sheets/?num=1&count=53&sq=ship&pos=4)
 
 
-In addition to the sources above, I used [Aesprite](https://aseprite.org/) to modify some of the free assets. I spent a lot of time ensuring that animation looked good on the player and enemy spirte and needed to modify multiple to fit my needs. 
+In addition to the sources above, I used [Aesprite](https://aseprite.org/) to modify some of the free assets. I spent a lot of time ensuring that animation looked good on the player and enemy sprite and needed to modify multiple to fit my needs. 
 
 Additional thanks goes out to [Bob](https://codeinplace.stanford.edu/public/user/zxtfGx5IJFaKA4BmajxSDzzIP7d2) for allowing the use of his image and voice for a special boss, which is enabled in the Options.
 
