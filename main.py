@@ -30,7 +30,7 @@ score = 0
 player_lives = 3
 volume = .1
 font = pygame.font.Font("SF Atarian System.ttf", 40)
-winning_score = 50
+winning_score = 1000
 
 #loads music
 pygame.mixer.pre_init(44100, -16, 2, 512)
